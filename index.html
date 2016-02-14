@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Cross-Platform AutoCue</title>
+
+    <!-- Mobile Specific Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <link rel="stylesheet" href="css/style.css?v=0.5">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/settings.css">
+
+    <meta name="description" content="Web AutoCue">
+    <meta name="author" content="Stefan Lazic">
+
+    <style>
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+        
+        input[type=file] {
+            color: transparent;
+        }
+        
+        .custom-file-input::after {
+            vertical-align: middle;
+        }
+        
+        .custom-file-input::before {
+            /*content: 'Load a file';*/
+            display: inline-block;
+            border: 1px solid #999;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #fff;
+        }
+        
+        .custom-file-input:hover::before {
+            border-color: #02C3D9;
+            color: #02C3D9;
+        }
+    </style>
+
+</head>
+<script>
+    var nw = require('nw.gui');
+    var win = nw.Window.get();
+    win.isMaximized = false;
+</script>
+
+<body id="gui">
+    <header>
+        <ul>
+            <li>
+                <a href='#' title='Close' id='windowControlClose'></a>
+            </li>
+            <li>
+                <a href='#' title='Maximize' id='windowControlMaximize'></a>
+            </li>
+            <li>
+                <a href='#' title='Minimize' id='windowControlMinimize'></a>
+            </li>
+        </ul>
+        <nav>
+            <div class="buttons">
+                <div id="tools">
+                    <div id="doc_opt">
+                        <ul>
+                            <li><span class="clock">00:00:00</span></li>
+                            <li>
+                                <a class="button icon-play play" href="#" onclick="return false;" title="Play"></a>
+                            </li>
+                            <li>
+                                <a class="button icon-undo reset" href="#" onclick="return false;" title="Reset"></a>
+                            </li>
+                            <li>
+                                <a class="button icon-text-width flipx" href="#" onclick="Flip()" title="Flip"></a>
+                            </li>
+                            <li>
+                                <a class="button icon-adjust" href="#" onclick="Overlay()" title="Hide/Show Overlay"></a>
+                            </li>
+                            <li>
+                                <select id="fontsize" onChange="fPX(value)">]
+                                    <option>Font Size</option>
+                                    <option value="10">10 px</option>
+                                    <option value="20">20 px</option>
+                                    <option value="30">30 px</option>
+                                    <option value="40">40 px</option>
+                                    <option value="50">50 px</option>
+                                    <option value="60">60 px</option>
+                                    <option value="70">70 px</option>
+                                    <option value="80">80 px</option>
+                                    <option value="90">90 px</option>
+                                    <option value="100">100 px</option>
+                                </select>
+                            </li>
+                            <li>
+                                <div class="image-upload">
+                                    <label for="file-input">
+                                        <i class="icon-file-text-alt custom-file-input"></i>
+                                    </label>
+
+                                    <input id="file-input" type="file" />
+                                </div>
+                            </li>
+                            <!-- <li><a class="js-external-link button icon-github" onclick="javascript:gui.Shell.openExternal(https://github.com/oxhey)" href="#" target="_blank"></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <script>
+        // Min
+        document.getElementById('windowControlMinimize').onclick = function () {
+            win.minimize();
+        };
+
+        // Close
+        document.getElementById('windowControlClose').onclick = function () {
+            win.close();
+            gui.App.closeAllWindows();
+        };
+
+        // Max
+        document.getElementById('windowControlMaximize').onclick = function () {
+            if (win.isMaximized)
+                win.unmaximize();
+            else
+                win.maximize();
+        };
+
+        win.on('maximize', function () {
+            win.isMaximized = true;
+        });
+
+        win.on('unmaximize', function () {
+            win.isMaximized = false;
+        });
+    </script>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <article>
+        <div class="overlay">
+            <div class="top"></div>
+            <div class="bottom"></div>
+        </div>
+        <div class="teleprompter" id="teleprompter" contenteditable> Oh, hello there </div>
+        <i class="icon-play marker"></i> </article>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.timer.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        function Flip() {
+
+            $(".teleprompter").toggleClass("flipy");
+
+        }
+    </script>
+    <script>
+        function Overlay() {
+
+            $(".overlay").toggleClass("hideme");
+
+        }
+    </script>
+    <script>
+        $(document).keyup(function (e) {
+            switch (e.which) {
+            case 37: // left
+                decreaseSpeed();
+                break;
+
+            case 38: // up
+                break;
+
+            case 39: // right
+                increaseSpeed();
+                break;
+
+            case 40: // down
+                break;
+
+            default:
+                return; // exit this handler for other keys
+            }
+            e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
+    </script>
+    <script>
+        function fPX() {
+
+            var a = document.getElementById("fontsize");
+            var b = a.options[a.selectedIndex].value;
+
+            window.document.getElementById("teleprompter").style.fontSize = b + 'px';
+
+        }
+    </script>
+
+    <script language="javascript">
+        function readSingleFile(e) {
+            var file = e.target.files[0];
+            if (!file) {
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var contents = e.target.result;
+                displayContents(contents);
+            };
+            reader.readAsText(file);
+        }
+
+        function displayContents(contents) {
+            var element = document.getElementById('teleprompter');
+            element.innerHTML = contents;
+        }
+
+        document.getElementById('file-input')
+            .addEventListener('change', readSingleFile, false);
+    </script>
+</body>
+
+</html>

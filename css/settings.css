@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 40px;
+  font-weight: normal;
+  text-transform: uppercase;
+  float: left;
+  margin: 20px 0 100px 10px;
+}
+h1 span {
+  font-size: 13px;
+  display: block;
+  padding-left: 4px;
+}
+
+#sec1:hover {
+background-color:#949494;
+}
+
+#sec2:hover {
+background-color:#949494;
+}
+
+p.link {
+  clear: both;
+  margin: 380px 0 0 15px;
+}
+p.link a {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #612e76;
+}
+p.link a:hover {
+  background-color: #522764;
+}
+
+
+/*   Start of colours */
+.colourwrapper{
+  width:140px;
+  /* margin:0 auto; */
+}
+
+.swatch {
+  position: relative;
+  margin: 3px;
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
+.turquoise { 
+  background: #1abc9c; 
+}
+.emerland { 
+  background: #2ecc71; 
+}
+.peterriver { 
+  background: #3498db; 
+}
+.amethyst { 
+  background: #9b59b6; 
+}
+.wetasphalt { 
+  background: #34495e; 
+}
+.greensea { 
+  background: #16a085; 
+}
+.nephritis { 
+  background: #27ae60; 
+}
+.belizehole { 
+  background: #2980b9; 
+}
+.wisteria { 
+  background: #8e44ad; 
+}
+.midnightblue { 
+  background: #2c3e50; 
+}
+.sunflower { 
+  background: #f1c40f; 
+}
+.carrot { 
+  background: #e67e22; 
+}
+.alizarin { 
+  background: #e74c3c; 
+}
+.clouds { 
+  background: #ecf0f1;
+}
+.concrete { 
+  background: #95a5a6; 
+}
+.orange { 
+  background: #f39c12; 
+}
+.pumpkin { 
+  background: #d35400; 
+}
+.pomegranate { 
+  background: #c0392b; 
+}
+.silver { 
+  background: #bdc3c7; 
+}
+.asbestos { 
+  background: #7f8c8d; 
+}
+.pink1 { 
+  background: #EC87C0; 
+}
+.pink2 { 
+  background: #D770AD; 
+}
+.black { 
+  background: #000; 
+}
+.grey1 { 
+  background: #656D78; 
+}
+.grey2 { 
+  background: #434A54; 
+}
+
+/* Active */
+
+.turquoise:hover { 
+ border:1px solid white;
+}
+.emerland:hover { 
+border:1px solid white;}
+.peterriver:hover { 
+border:1px solid white;}
+.amethyst:hover { 
+border:1px solid white;}
+.wetasphalt:hover{ 
+border:1px solid white;}
+.greensea:hover { 
+border:1px solid white;}
+.nephritis:hover { 
+border:1px solid white;}
+.belizehole:hover { 
+border:1px solid white;}
+.wisteria:hover { 
+border:1px solid white;}
+.midnightblue:hover { 
+border:1px solid white;}
+.sunflower:hover { 
+border:1px solid white;}
+.carrot:hover { 
+border:1px solid white;}
+.alizarin:hover { 
+border:1px solid white;}
+.clouds:hover{ 
+border:1px solid white;}
+.concrete:hover { 
+border:1px solid white;}
+.orange:hover { 
+border:1px solid white;}
+.pumpkin:hover { 
+border:1px solid white;}
+.pomegranate:hover { 
+border:1px solid white;}
+.silver:hover{ 
+border:1px solid white;}
+.asbestos:hover { 
+border:1px solid white;}
+.pink1:hover { 
+border:1px solid white;}
+.pink2:hover{ 
+border:1px solid white;}
+.black:hover{ 
+border:1px solid white;}
+.grey1:hover{ 
+border:1px solid white;}
+.grey2:hover{ 
+border:1px solid white;}
+

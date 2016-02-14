@@ -1,0 +1,82 @@
+article ul.colour {
+  margin: 15px 0 0;
+  padding-left:0px;
+  padding-right:0px;
+}
+article ul.grey-scale {
+  margin: 15px 0 0;
+  padding-left:0px;
+  padding-right:0px;
+}
+
+article li {
+  margin: 0 15px 0 0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+article li.sblack {
+  background: #181c1e;
+}
+
+article li.slight-black {
+  background: #272c2f;
+}
+
+article li.sdark-grey {
+  background: #33393d;
+}
+
+article li.smid-grey {
+  background: #404549;
+}
+
+article li.slight-grey {
+  background: #ccc;
+}
+
+article li.soff-white {
+  background: #eee;
+}
+
+article li.swhite {
+  background: #fff;
+}
+
+article li.sred {
+  background: #fa5a5a;
+}
+
+article li.syellow {
+  background: #f0d264;
+}
+
+article li.sgreen {
+  background: #82c8a0;
+}
+
+article li.scyan {
+  background: #7fccde;
+}
+
+article li.sblue {
+  background: #6698cb;
+}
+
+article li.spurple {
+  background: #cb99c5;
+}
+
+.content {
+	/*width: 780px;
+	float: right;*/
+	
+}
+
+.sidebar1 {
+	float: left;
+	width: 149px;
+
+}

@@ -26,4 +26,6 @@ Support is limited for this app, however I will try to help.
 Feel free to suggest features that could be added.
 
 
+This app is a modification of https://github.com/manifestinteractive/teleprompter
+
 Copyright (C) 2016 Stefan Lazic
